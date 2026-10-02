@@ -1,6 +1,6 @@
 # AI 商科案例推演平台
 
-独立源码版，不连接原阿里云服务，不包含生产数据与密钥。React/Ant Design → 同源 FastAPI → SQLite；`ai_component` 负责 AI 工作流，`contracts` 保存数据契约。
+独立源码版，不包含生产数据与密钥。React/Ant Design → 同源 FastAPI → SQLite；`ai_component` 负责 AI 工作流，`contracts` 保存数据契约。
 
 ## 安装与启动
 
