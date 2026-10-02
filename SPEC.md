@@ -1,6 +1,6 @@
 # case-sim · SPEC.md 接口契约
 
-> 2026-09-25 架构修订：本文件的早期目录和账号范围是历史基线，不代表当前源码组织。当前分工与启动以 [架构分工与交接](docs/架构分工与交接.md) 为准；AI interface 见 [contracts](contracts/README.md)，当前 HTTP 模型以 backend/app/schemas.py 及路由回归测试为准。此次拆分保持既有 HTTP 路径和字段，不新增 AI 独立服务。
+> 2026-09-25 架构修订：本文件的早期目录和账号范围是历史基线，不代表当前源码组织。当前启动说明见 [README](README.md)，核心概念见 [CONTEXT](CONTEXT.md)；AI interface 见 [contracts](contracts/README.md)，当前 HTTP 模型以 backend/app/schemas.py 及路由回归测试为准。此次拆分保持既有 HTTP 路径和字段，不新增 AI 独立服务。
 
 > 本文件是**步骤 1 产出**，是步骤 2–9 的唯一接口依据。
 > 分工：本文件定义「表怎么建、接口长什么样」；代码不得偏离本文件的路径与字段名。
@@ -96,7 +96,7 @@ case-sim/
 ### 0.3 标杆数据消费与文档断言策略
 
 - **业务数据源**：`rules.py` 读取 `docs/标杆案例.json` 的 `simulation_results`；`source_results` 仅作原文存档，**不被业务逻辑消费**。
-- **`docs/build_docs.py` 断言**：`source_*` 字段继续保留“逐字命中 md 正文”的断言；`simulation_results` 等推导字段改用“结构断言 + 校验 `source_status` 标记”。同时保留回归断言：原有 4 个键仍须逐字命中 md。
+- **历史生成校验**：内部文档生成工具曾校验原文转录及推导字段来源；公开源码不包含该工具与原始文档。运行时直接读取随仓库提供的两个 JSON，并由 `backend/app/domain/rules.py` 校验必需字段与规则结构。
 
 ---
 

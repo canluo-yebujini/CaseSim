@@ -125,7 +125,7 @@ def main():
         if not args.local_only:
             executable = ROOT / "tools" / "cloudflared.exe"
             if not executable.is_file():
-                raise RuntimeError("Missing tools/cloudflared.exe; see docs/公网测试使用说明.md")
+                raise RuntimeError("Missing tools/cloudflared.exe; see README.md (public testing setup)")
             tunnel_log = (folder / "tunnel.log").open("w", encoding="utf-8")
             logs.append(tunnel_log)
             tunnel_args = [str(executable), "tunnel", "--no-autoupdate", "--protocol", "http2"]

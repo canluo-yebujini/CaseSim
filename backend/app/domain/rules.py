@@ -24,7 +24,7 @@ def _load_json(path: Path) -> Dict[str, Any]:
     if not path.is_file():
         raise RulesError(
             "找不到商科规则文件：%s\n"
-            "请先执行 `python docs/build_docs.py` 从 docs/source/ 的两份 docx 生成。" % path
+            "请从同版本源码恢复 docs/商科规则.json 和 docs/标杆案例.json，保持文件名及路径不变。" % path
         )
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -89,7 +89,7 @@ CASE_TYPES: List[Dict[str, str]] = RULES["case_types"]
 INDUSTRY_BASELINE: List[Dict[str, str]] = RULES["industry_baseline"]
 #: 决策传导逻辑，固定 5 条
 TRANSMISSION_RULES: List[Dict[str, str]] = RULES["transmission_rules"]
-# 指标公式、通用约束、素材格式与最低材料要求，均由 build_docs.py 从源 docx 生成
+# 指标公式、通用约束、素材格式与最低材料要求，读取随源码提供的规则 JSON
 METRIC_FORMULAS: List[Dict[str, str]] = RULES["metric_formulas"]
 COMMON_CONSTRAINTS: List[Dict[str, str]] = RULES["common_constraints"]
 INPUT_FORMATS: List[Dict[str, str]] = RULES["input_formats"]
