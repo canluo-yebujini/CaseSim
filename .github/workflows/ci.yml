@@ -29,4 +29,5 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -r backend/requirements-dev.txt
-      - run: "DATABASE_URL=sqlite:///:memory: pytest backend/tests ai_component/tests -q"
+      # Run as a module so imports resolve from the repository root.
+      - run: "DATABASE_URL=sqlite:///:memory: python -m pytest backend/tests ai_component/tests -q"
